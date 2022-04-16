@@ -67,7 +67,7 @@ async def ytdl(link):
         return 1, stdout.decode().split("\n")[0]
     else:
         return 0, stderr.decode()
-@Client.on_message(    filters.user(SUDO_USERS) & filters.command(["تشغيل"], prefixes=f"{HNDLR}"))
+@Client.on_message(    filters.user(SUDO_USERS) & filters.command(["ش"], prefixes=f"{HNDLR}"))
 @authorized_users_only
 async def play(client, m: Message):
     replied = m.reply_to_message
@@ -102,7 +102,7 @@ async def play(client, m: Message):
                 add_to_queue(chat_id, songname, dl, link, "Audio", 0)
                 await huehue.delete()
                 await m.reply_photo(
-                    photo="https://telegra.ph/file/40c0ab31719a780e37b5c.jpg",
+                    photo="https://telegra.ph/file/65f9b2fb1dfd7be0ecf3e.jpg",
                     caption=f"""
 **🏷️ العنوان : [{songname}]({link})
 💬 ايدي المحادثه : {chat_id}
@@ -164,7 +164,7 @@ async def play(client, m: Message):
                         except Exception as ep:
                             await huehue.edit(f"`{ep}`")
 
-@Client.on_message(    filters.user(SUDO_USERS) & filters.command(["تشغيل_فيديو"], prefixes=f"{HNDLR}"))
+@Client.on_message(    filters.user(SUDO_USERS) & filters.command(["فيد"], prefixes=f"{HNDLR}"))
 @authorized_users_only
 async def vplay(client, m: Message):
     replied = m.reply_to_message
@@ -367,7 +367,7 @@ async def skip(client, m: Message):
                         OP = OP + "\n" + f"**#⃣{x}** - {hm}"
             await m.reply(OP)
 
-@Client.on_message(    filters.user(SUDO_USERS) & filters.command(["انهاء", "ايقاف"], prefixes=f"{HNDLR}"))
+@Client.on_message(    filters.user(SUDO_USERS) & filters.command(["انهاء", "قف"], prefixes=f"{HNDLR}"))
 @authorized_users_only
 async def stop(client, m: Message):
     await m.delete()
